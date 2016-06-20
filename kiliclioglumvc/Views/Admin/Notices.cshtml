@@ -1,0 +1,42 @@
+﻿@model IEnumerable<kiliclioglumvc.Models.notice>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Uyarılar</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Anamenü", "Menu")<br />
+        @Html.ActionLink("Yeni Uyarı", "CreateNotice")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Uyarılar
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.text)
+            </td>
+            <td>
+                @Html.ActionLink("Değiştir", "ModifyNotice", new { id=item.id }) |
+                @Html.ActionLink("Sil", "DeleteNotice", new { id=item.id }, new { onclick = "return confirm('Uyarıyı silmek istediğinizden emin misiniz?');" })
+            </td>
+        </tr>
+    }
+    </table>
+</body>
+</html>

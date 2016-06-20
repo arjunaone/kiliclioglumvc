@@ -1,0 +1,28 @@
+﻿@model kiliclioglumvc.Models.notice
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Uyarı Değiştir</title>
+</head>
+<body>
+    <form action="modifynotice" method="post">
+        <h4>Uyarı Değiştir</h4>
+        @*@Html.HiddenFor(model => model.id)*@
+        <input id="ModifyNoticeId" name="ModifyNoticeId" type="hidden" value="@Model.id" />
+        <textarea id="ModifyNoticeTextarea" name="ModifyNoticeTextarea" rows="6" cols="30">@Model.text</textarea>
+        <input id="modify-notice-button" type="submit" value="Kaydet" />
+    </form>
+        <div>
+            @Html.ActionLink("Geri git", "Notices")
+        </div>
+</body>
+</html>

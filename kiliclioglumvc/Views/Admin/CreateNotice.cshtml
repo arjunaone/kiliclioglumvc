@@ -1,0 +1,26 @@
+﻿@model kiliclioglumvc.Models.notice
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Yeni Uyarı</title>
+</head>
+<body>
+    <form action="createnotice" method="post">
+        <h4>Yeni Uyarı</h4>
+        <textarea id="CreateNoticeTextarea" name="CreateNoticeTextarea" rows="6" cols="30"></textarea>
+        <input id="create-notice-button" type="submit" value="Yarat" />
+    </form>
+    <div>
+        @Html.ActionLink("Geri git", "Notices")
+    </div>
+</body>
+</html>

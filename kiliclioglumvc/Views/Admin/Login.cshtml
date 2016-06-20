@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Giriş</title>
+</head>
+<body>
+    <div>
+        <form action="login" method="post">
+            <table>
+                <tr>
+                    <td>Kullanıcı Adı:</td>
+                    <td><input id="username-textbox" name="username" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Şifre:</td>
+                    <td><input id="password-textbox" name="password" type="password" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <input id="login-button" type="submit" value="Giriş" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

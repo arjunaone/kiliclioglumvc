@@ -1,0 +1,29 @@
+﻿@model kiliclioglumvc.Models.IndexModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div id="notice-container">
+        @for(int i = 0; i < Model.noticeList.Count; i++)
+        {
+            <p class="notice">@Model.noticeList[i].text</p>
+        }
+    </div>
+    <div id="product-list-container">
+        @for(int i = 0; i < Model.productList.Count; i++)
+        {
+            <div class="product">
+                <a>
+                    <img class="product-img" src="@Model.productList[i].imageSource" />
+                </a>
+                <span class="product-name">@Model.productList[i].name</span><br />
+                <span class="product-model">@Model.productList[i].model</span><br />
+                <span class="product-stock">@(Model.productList[i].availability ? "ÜRÜN STOKTA VAR" : "ÜRÜN STOKTA YOK")</span><br />
+                <span class="product-kdv">KDV Dahil</span>
+                <span class="product-price">@Model.productList[i].price TL</span>
+            </div>
+        }
+    </div>
+</section>
+

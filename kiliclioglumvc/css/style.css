@@ -1,0 +1,157 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-color: #f1f1f1;
+    color: #048;
+    height: 184px;
+    box-shadow: 0px 1px 1px #000;
+}
+
+    header h1 {
+        font-size: 3.25em;
+        display: inline-block;
+        padding: 12px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header h2 {
+        display: block;
+        padding: 12px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav {
+        display: block;
+        padding: 12px 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
+
+        header nav ul {
+            display: inline-block;
+        }
+
+            header nav ul li {
+                display: inline-block;
+            }
+
+            header nav ul li a {
+                text-decoration: none;
+            }
+
+section .notice {
+    font-weight: bold;
+    color: firebrick;
+    text-align: center;
+}
+
+section #notice-container {
+    margin-top: 10px;
+}
+
+section #product-list-container {
+    width: 452px;
+    margin: 0 auto;
+}
+
+section #contact-container {
+    width: 400px;
+    margin: 10px auto;
+}
+
+section #contact-details {
+    font-weight: bold;
+}
+
+section .product {
+    border: 1px solid black;
+    width: 450px;
+    height: 360px;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+}
+
+    section .product .product-img {
+        height: 250px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    section .product .product-stock, section .product .product-kdv {
+        font-size: 0.8em;
+    }
+
+    section .product .product-price {
+        color: firebrick;
+        font-weight: bold;
+    }
+
+#username-textbox, #password-textbox {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+#login-button, #create-notice-button, #modify-notice-button {
+    padding: 5px;
+}
+
+#CreateNoticeTextarea, #ModifyNoticeTextarea {
+    border: 1px solid black;
+}
+
+@media (min-width: 790px) {
+    header {
+        height: 90px;
+    }
+
+        header h1 {
+            padding: 12px 0 0 25px;
+            width: 33%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        header h2 {
+            display: inline-block;
+            position: relative;
+            top: 3px;
+            width: 47%;
+            text-align: right;
+        }
+
+        header nav {
+            float: right;
+            display: inline-block;
+            margin: 22px 25px 0 0;
+            width: 16%;
+            text-align: right;
+        }
+}
+
+@media (min-width: 929px) {
+    section #product-list-container {
+        width: 914px;
+    }
+
+    section .product:nth-child(2n) {
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 960px) {
+    header h2 {
+        width: 34%;
+        text-align: center;
+    }
+}
