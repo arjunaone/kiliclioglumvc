@@ -1,0 +1,78 @@
+﻿@model kiliclioglumvc.Models.product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Ürün Değiştir</title>
+</head>
+<body>
+    <form action="modifynotice" method="post">
+        <h4>Ürün Değiştir</h4>
+        <input id="ModifyProductId" name="ModifyProductId" type="hidden" value="@Model.id" />
+        <table>
+            <tr>
+                <td>Adı</td>
+                <td><input id="product-name-textbox" name="name" type="text" size="56" value="@Model.name" /></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td><textarea class="textarea-width" id="product-model-textbox" name="model" rows="3">@Model.model</textarea></td>
+            </tr>
+            <tr>
+                <td>Stok</td>
+                <td>@Html.EditorFor(model => model.availability)</td>
+            </tr>
+            <tr>
+                <td>Fiyat</td>
+                <td><input id="product-price-textbox" name="price" type="number" value="@Model.price" /></td>
+            </tr>
+            <tr>
+                <td>Resim Dosyası</td>
+                <td>
+                    <select id="product-imageSource-select" name="imageSource">
+                        @foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                        {
+                            if (Model.imageSource == "/img/" + image)
+                            {
+                                <option value="/img/@image" selected="selected">@image</option>
+                            }
+                            else
+                            {
+                                <option value="/img/@image">@image</option>
+                            }
+                        }
+                    </select>
+                    @*<input id="product-imageSource-textbox" name="imageSource" type="text" value="@Model.imageSource" />*@
+                </td>
+            </tr>
+            <tr>
+                <td>Sıra</td>
+                <td><input id="product-indexOrder-textbox" name="indexOrder" type="number" value="@Model.indexOrder" /></td>
+            </tr>
+            <tr>
+                <td>Detaylar</td>
+                <td><textarea class="textarea-width" id="product-details-textbox" name="details" rows="10">@Model.details</textarea></td>
+            </tr>
+        </table>
+        @if ((string)Session["username"] == "cv")
+        {
+            <input id="modify-product-button" type="button" value="Kaydet" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="modify-product-button" type="submit" value="Kaydet" />
+        }
+    </form>
+    <div>
+        @Html.ActionLink("Geri git", "Products")
+    </div>
+</body>
+</html>

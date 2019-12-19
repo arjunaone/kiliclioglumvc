@@ -12,11 +12,11 @@ namespace kiliclioglumvc.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            using(var pc = new kilicliogluEntities())
+            using(var db = new kilicliogluEntities())
             {
                 IndexModel indexModel = new IndexModel();
-                indexModel.productList = pc.product.ToList();
-                indexModel.noticeList = pc.notice.ToList();
+                indexModel.productList = db.product.OrderBy(x => x.indexOrder).ToList();
+                indexModel.noticeList = db.notice.ToList();
                 return View(indexModel);
             }
         }
@@ -25,5 +25,27 @@ namespace kiliclioglumvc.Controllers
         {
             return View();
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ProductDetails(int id)
+        {
+            DetailsModel detailsModel = new DetailsModel(); ;
+
+            using (var db = new kilicliogluEntities())
+            {
+                detailsModel.product = db.product.Find(id);
+                detailsModel.noticeList = db.notice.ToList();
+            }
+
+            return View(detailsModel);
+        }
     }
 }
+
+//Data Source=ONURDESKTOP;Initial Catalog=kiliclioglu;Persist Security Info=True;User ID=sa;Password=baris0307
+//data source = 94.73.146.3;initial catalog = u6148866_kilicli; user id = u6148866_kilicli; password=BAris0307baris1

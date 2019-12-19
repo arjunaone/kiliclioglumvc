@@ -16,10 +16,16 @@
 <body>
     <form action="modifynotice" method="post">
         <h4>Uyarı Değiştir</h4>
-        @*@Html.HiddenFor(model => model.id)*@
         <input id="ModifyNoticeId" name="ModifyNoticeId" type="hidden" value="@Model.id" />
         <textarea id="ModifyNoticeTextarea" name="ModifyNoticeTextarea" rows="6" cols="30">@Model.text</textarea>
-        <input id="modify-notice-button" type="submit" value="Kaydet" />
+        @if ((string)Session["username"] == "cv")
+        {
+            <input id="modify-notice-button" type="button" value="Kaydet" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="modify-notice-button" type="submit" value="Kaydet" />
+        }
     </form>
         <div>
             @Html.ActionLink("Geri git", "Notices")

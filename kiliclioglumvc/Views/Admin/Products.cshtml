@@ -1,0 +1,82 @@
+﻿@model IEnumerable<kiliclioglumvc.Models.product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Ürünler</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Anamenü", "Menu")<br />
+        @Html.ActionLink("Yeni Ürün", "CreateProduct")<br />
+        @Html.ActionLink("Resim Ekle", "AddImage")<br />
+        @Html.ActionLink("Resim Sil", "DeleteImage")
+    </p>
+    <table class="product-table">
+        <tr>
+            <th>
+                Adı
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Stok
+            </th>
+            <th>
+                Fiyat
+            </th>
+            <th>
+                Resim
+            </th>
+            <th>
+                Sıra
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach(var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                <div class="multiline">@Html.DisplayFor(modelItem => item.model)</div>
+            </td>
+            <td>
+                @(item.availability == true ? "Var" : "Yok")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imageSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.indexOrder)
+            </td>
+            <td>
+                @Html.ActionLink("Değiştir", "ModifyProduct", new { id = item.id }) |
+                @if ((string)Session["username"] == "cv")
+                {
+                    <span onclick="alert('Bu sizin için mümkün değil.');">Sil</span>
+                }
+                else
+                {
+                    @Html.ActionLink("Sil", "DeleteProduct", new { id = item.id }, new { onclick = "return confirm('Ürünü silmek istediğinizden emin misiniz?');" })
+                }
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

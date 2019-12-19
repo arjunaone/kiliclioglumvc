@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Resim Ekle</title>
+</head>
+<body>
+    @using (Html.BeginForm("addimage", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <label for="file">Dosya Seç: </label>
+        <input type="file" name="file" id="file" /><br />
+        if ((string)Session["username"] == "cv")
+        {
+            <input id="add-image-button" type="button" value="Ekle" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="add-image-button" type="submit" value="Ekle" />
+        }
+    }
+    <div>
+        @Html.ActionLink("Geri git", "Products")<br />
+        @ViewBag.Message
+    </div>
+</body>
+</html>

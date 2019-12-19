@@ -1,0 +1,30 @@
+﻿@model kiliclioglumvc.Models.DetailsModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div id="product-details-container">
+        <div class="row">
+            <div class="column">
+                <img class="product-details-img" src="@Model.product.imageSource" />
+                <span class="product-details-name">@Model.product.name</span><br />
+                <span class="product-details-model">@Model.product.model</span><br />
+                <span class="product-details-stock">@(Model.product.availability ? "ÜRÜN STOKTA VAR" : "ÜRÜN STOKTA YOK")</span><br />
+                <span class="product-details-kdv">KDV Dahil</span>
+                <span class="product-details-price">@Model.product.price TL</span><br /><br />
+            </div>
+            <div class="column right">
+                <p id="product-properties-p">ÜRÜN ÖZELLİKLERİ</p><br />
+                <span class="product-details-details">@Model.product.details</span>
+            </div>
+        </div>
+    </div>
+    <div id="notice-container">
+        @for (int i = 0; i < Model.noticeList.Count; i++)
+        {
+            <p class="notice">@Model.noticeList[i].text</p>
+        }
+    </div>
+</section>
+

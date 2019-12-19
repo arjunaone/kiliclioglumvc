@@ -18,25 +18,32 @@
         @Html.ActionLink("Anamenü", "Menu")<br />
         @Html.ActionLink("Yeni Uyarı", "CreateNotice")
     </p>
-    <table class="table">
+    <table class="notice-table">
         <tr>
             <th>
                 Uyarılar
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.text)
-            </td>
-            <td>
-                @Html.ActionLink("Değiştir", "ModifyNotice", new { id=item.id }) |
-                @Html.ActionLink("Sil", "DeleteNotice", new { id=item.id }, new { onclick = "return confirm('Uyarıyı silmek istediğinizden emin misiniz?');" })
-            </td>
-        </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.text)
+                </td>
+                <td>
+                    @Html.ActionLink("Değiştir", "ModifyNotice", new { id = item.id }) |
+                    @if((string)Session["username"]=="cv") {
+                        <span onclick="alert('Bu sizin için mümkün değil.');">Sil</span>
+                    }
+                    else {
+                        @Html.ActionLink("Sil", "DeleteNotice", new { id = item.id }, new { onclick = "return confirm('Uyarıyı silmek istediğinizden emin misiniz?');" })
+                    }
+                </td>
+            </tr>
+        }
     </table>
 </body>
 </html>
+

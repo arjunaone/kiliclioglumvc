@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Resim Sil</title>
+</head>
+<body>
+    @using (Html.BeginForm("deleteimage", "admin", FormMethod.Post))
+    {
+        <select id="product-imageSource-select" name="imageSource">
+            @foreach (var image in (IEnumerable<string>)ViewBag.Images)
+            {
+                <option value="@image">@image</option>
+            }
+        </select><br />
+        if ((string)Session["username"] == "cv")
+        {
+            <input id="delete-image-button" type="button" value="Sil" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="delete-image-button" type="submit" value="Sil" />
+        }
+    }
+    <div>
+        @Html.ActionLink("Geri git", "Products")<br />
+        @ViewBag.Message
+    </div>
+</body>
+</html>

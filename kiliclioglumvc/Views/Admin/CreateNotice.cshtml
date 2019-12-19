@@ -17,7 +17,14 @@
     <form action="createnotice" method="post">
         <h4>Yeni Uyarı</h4>
         <textarea id="CreateNoticeTextarea" name="CreateNoticeTextarea" rows="6" cols="30"></textarea>
-        <input id="create-notice-button" type="submit" value="Yarat" />
+        @if ((string)Session["username"] == "cv")
+        {
+            <input id="create-notice-button" type="button" value="Yarat" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="create-notice-button" type="submit" value="Yarat" />
+        }
     </form>
     <div>
         @Html.ActionLink("Geri git", "Notices")

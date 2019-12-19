@@ -17,19 +17,20 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="text" Type="nvarchar(max)" />
+          <Property Name="text" Type="nvarchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="model" Type="nvarchar" MaxLength="60" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="500" />
           <Property Name="availability" Type="bit" Nullable="false" />
           <Property Name="price" Type="int" />
           <Property Name="imageSource" Type="nvarchar" MaxLength="100" />
           <Property Name="indexOrder" Type="int" />
+          <Property Name="details" Type="ntext" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -54,12 +55,13 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="model" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="availability" Type="Boolean" Nullable="false" />
           <Property Name="price" Type="Int32" />
           <Property Name="imageSource" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="indexOrder" Type="Int32" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -74,7 +76,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="kilicliogluEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="product" EntityType="Self.product" />
@@ -98,6 +100,7 @@
           <EntitySetMapping Name="product">
             <EntityTypeMapping TypeName="kilicliogluModel.product">
               <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="details" ColumnName="details" />
                 <ScalarProperty Name="indexOrder" ColumnName="indexOrder" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />

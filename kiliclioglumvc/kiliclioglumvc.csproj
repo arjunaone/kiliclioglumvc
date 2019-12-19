@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,9 +102,10 @@
   <ItemGroup>
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
-    <Content Include="img\ol900yeni.jpg" />
-    <Content Include="img\profiloverifonevx680.jpg" />
-    <Content Include="img\profiloyk8200.png" />
+    <Content Include="img\olivettimx915.jpg" />
+    <Content Include="img\olivettipbt900.jpg" />
+    <Content Include="img\profilos900.jpg" />
+    <Content Include="img\verifonevx680.jpg" />
     <Content Include="Models\kiliclioglu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>kiliclioglu.edmx</DependentUpon>
@@ -128,6 +130,7 @@
     <Compile Include="Models\contact.cs">
       <DependentUpon>kiliclioglu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DetailsModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\kiliclioglu.Context.cs">
       <AutoGen>True</AutoGen>
@@ -173,7 +176,14 @@
     <Content Include="Views\Admin\Notices.cshtml" />
     <Content Include="Views\Admin\CreateNotice.cshtml" />
     <Content Include="Views\Admin\ModifyNotice.cshtml" />
-    <None Include="Properties\PublishProfiles\kiliclioglu.somee.pubxml" />
+    <Content Include="Views\Admin\Products.cshtml" />
+    <Content Include="Views\Admin\CreateProduct.cshtml" />
+    <Content Include="Views\Admin\AddImage.cshtml" />
+    <Content Include="Views\Admin\DeleteImage.cshtml" />
+    <Content Include="Views\Admin\ModifyProduct.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

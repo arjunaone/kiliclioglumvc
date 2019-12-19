@@ -21,5 +21,6 @@ namespace kiliclioglumvc.Models
         public Nullable<int> price { get; set; }
         public string imageSource { get; set; }
         public Nullable<int> indexOrder { get; set; }
+        public string details { get; set; }
     }
 }

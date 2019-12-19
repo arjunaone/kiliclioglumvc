@@ -1,0 +1,70 @@
+﻿@model kiliclioglumvc.Models.product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <title>Yeni Ürün</title>
+</head>
+<body>
+    <form action="createproduct" method="post">
+        <h4>Yeni Ürün</h4>
+        <table>
+            <tr>
+                <td>Adı</td>
+                <td><input id="product-name-textbox" name="name" type="text" size="56" /></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td><textarea class="textarea-width" id="product-model-textbox" name="model" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td>Stok</td>
+                <td>@Html.EditorFor(model => model.availability)</td>
+            </tr>
+            <tr>
+                <td>Fiyat</td>
+                <td><input id="product-price-textbox" name="price" type="number" /></td>
+            </tr>
+            <tr>
+                <td>Resim Dosyası</td>
+                <td>
+                    <select id="product-imageSource-select" name="imageSource">
+                        @foreach (var image in (IEnumerable<string>)ViewBag.Images)
+                        {
+                            <option value="/img/@image">@image</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Sıra</td>
+                <td><input id="product-indexOrder-textbox" name="indexOrder" type="number" /></td>
+            </tr>
+            <tr>
+                <td>Detaylar</td>
+                <td><textarea class="textarea-width" id="product-details-textbox" name="details" rows="10"></textarea></td>
+            </tr>
+        </table>
+        @if ((string)Session["username"] == "cv")
+        {
+            <input id="create-product-button" type="button" value="Yarat" onclick="alert('Bu sizin için mümkün değil.');" />
+        }
+        else
+        {
+            <input id="create-product-button" type="submit" value="Yarat" />
+        }     
+    </form>
+
+        <div>
+            @Html.ActionLink("Geri git", "Products")
+        </div>
+</body>
+</html>

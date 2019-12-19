@@ -6,13 +6,14 @@
 
 body {
     font-family: 'Trebuchet MS', sans-serif;
+    overflow-x: hidden;
 }
 
 header {
     background-color: #f1f1f1;
     color: #048;
     height: 184px;
-    box-shadow: 0px 1px 1px #000;
+    box-shadow: 0 1px 1px #000;
 }
 
     header h1 {
@@ -51,21 +52,50 @@ header {
 
 section .notice {
     font-weight: bold;
-    color: firebrick;
+    color: #05A;
     text-align: center;
 }
 
 section #notice-container {
-    margin-top: 10px;
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 100%;
+    float: left;
 }
 
 section #product-list-container {
-    width: 452px;
+    width: 100%;
     margin: 0 auto;
 }
 
+section #product-details-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    section #product-details-container .product-details-name {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    section #product-details-container .product-details-img {
+        height: 250px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    section #product-details-container .product-details-stock, section #product-details-container .product-details-kdv, section #product-details-container .product-details-name, section #product-details-container .product-details-model {
+        font-size: 0.8em;
+    }
+
+    section #product-details-container .product-details-price {
+        color: #07E;
+        font-weight: bold;
+    }
+
 section #contact-container {
-    width: 400px;
+    width: 100%;
     margin: 10px auto;
 }
 
@@ -75,12 +105,17 @@ section #contact-details {
 
 section .product {
     border: 1px solid black;
-    width: 450px;
-    height: 360px;
+    width: 100%;
+    height: 365px;
     text-align: center;
     float: left;
     margin-top: 10px;
 }
+
+    section .product a {
+        color: black;
+        text-decoration: none;
+    }
 
     section .product .product-img {
         height: 250px;
@@ -88,26 +123,35 @@ section .product {
         margin: 0 auto;
     }
 
-    section .product .product-stock, section .product .product-kdv {
+    section .product .product-stock, section .product .product-kdv, section .product .product-name, section .product .product-model {
         font-size: 0.8em;
     }
 
     section .product .product-price {
-        color: firebrick;
+        color: #07E;
         font-weight: bold;
     }
 
-#username-textbox, #password-textbox {
+.row {
+    margin-top: 1px;
+}
+
+#username-textbox, #password-textbox, #product-name-textbox, #product-model-textbox, #product-price-textbox, #product-indexOrder-textbox, #product-imageSource-textbox, #product-details-textbox {
     border: 1px solid black;
     padding: 4px;
 }
 
-#login-button, #create-notice-button, #modify-notice-button {
+#login-button, #create-notice-button, #modify-notice-button, #create-product-button, #add-image-button, #delete-image-button, #modify-product-button {
     padding: 5px;
 }
 
 #CreateNoticeTextarea, #ModifyNoticeTextarea {
     border: 1px solid black;
+}
+
+.product-table, .product-table tr td, .notice-table, .notice-table tr td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 @media (min-width: 790px) {
@@ -137,6 +181,49 @@ section .product {
             width: 16%;
             text-align: right;
         }
+
+    section #product-list-container {
+        width: 452px;
+    }
+
+    section .product {
+        width: 450px;
+        padding-top: 1px;
+        padding-bottom: 0px;
+    }
+
+        section .product:hover {
+            border: 2px solid #06C;
+            height: 363px;
+            width: 448px;
+            padding-top: 0px;
+            padding-bottom: 1px;
+            box-shadow: 0 0 10px #06C;
+        }      
+
+        section .product .product-name, section .product .product-model {
+            font-size: 1.0em;
+        }
+
+    section #product-details-container .product-details-stock, section #product-details-container .product-details-kdv {
+        font-size: 1.2em;
+    }
+
+    section #product-details-container .product-details-price, section #product-details-container .product-details-name, section #product-details-container .product-details-model {
+        font-size: 1.5em;
+    }
+
+    section #product-details-container .product-details-img {
+        height: 350px;
+    }
+
+    section #contact-container {
+        width: 480px;
+    }
+
+    #product-properties-p {
+        font-size: 1.2em;
+    }
 }
 
 @media (min-width: 929px) {
@@ -154,4 +241,53 @@ section .product {
         width: 34%;
         text-align: center;
     }
+
+    section #product-details-container {
+        width: 960px;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        height: 755px;
+        overflow: hidden;
+    }
+
+    .right {
+        overflow-y: scroll;
+    }
+
+    .row:after {
+        clear: both;
+    }
+
+    #product-properties-p {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 1060px) {
+    section #product-details-container {
+        width: 1060px;
+    }
+}
+
+@media (min-width: 1160px) {
+    section #product-details-container {
+        width: 1160px;
+    }
+}
+
+@media (min-width: 1260px) {
+    section #product-details-container {
+        width: 1260px;
+    }
+}
+
+.multiline, .product-model, .product-details-details {
+    white-space: pre-wrap;
+}
+
+.textarea-width {
+    width: 421px;
 }
