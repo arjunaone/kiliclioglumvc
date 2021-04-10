@@ -46,6 +46,3 @@ namespace kiliclioglumvc.Controllers
         }
     }
 }
-
-//Data Source=ONURDESKTOP;Initial Catalog=kiliclioglu;Persist Security Info=True;User ID=sa;Password=baris0307
-//data source = 94.73.146.3;initial catalog = u6148866_kilicli; user id = u6148866_kilicli; password=BAris0307baris1
